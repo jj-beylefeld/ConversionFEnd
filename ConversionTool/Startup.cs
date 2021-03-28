@@ -1,5 +1,6 @@
 using ConversionTool.Data;
 using ConversionTool.Models;
+using ConversionTool.Services.API;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,6 +46,8 @@ namespace ConversionTool
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddScoped<IConverterAPIFactory, ConverterAPIFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
